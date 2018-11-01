@@ -1,8 +1,7 @@
 body {
     font-family: Roboto; 
     margin: 0 auto;
-    background-image: url("geometry-1023846_1920.jpg");
-    background-repeat: no-repeat;
+    background: url("geometry-1023846_1920.jpg") no-repeat fixed center;
     /* background-position: center; */
     background-size: cover;
        
@@ -15,7 +14,7 @@ header {
     color: rgb(255, 205, 130);
     font-weight: bold;   
 }
-h2 {
+header > h2 {
     margin: 50px auto;
 }
 /*Nav menu style */
@@ -25,16 +24,14 @@ nav {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    /* border-bottom: 4px solid white; */
 }
 
 .menuButton {
     border-radius: 7px;
-    opacity: 0.8;
-    font-size: 1.6em;
-    width: 22%;
-    height: 65px;
-    padding: 5px 5px;
+    opacity: 0.9;
+    font-size: 1.65em;
+    width: 24%;
+    height: 60px;
     margin: 0;
     border-collapse: collapse;
     font-weight: bold;
@@ -52,17 +49,17 @@ nav {
 } 
 
 .buttonActive {
-    height: 72px;
+    height: 65px;
     background-color: rgb(250, 183, 83);
     border-left: 4px solid  rgb(46, 0, 253);
     border-right: 4px solid  rgb(46, 0, 253);
+    box-shadow: -4px 4px 18px rgb(106, 119, 238);
 }
 
 /** Content style**/
 section {
     display: flex;
-    justify-content: center
-    
+    justify-content: center    
 }
 #output {
     display: flex;
@@ -108,11 +105,6 @@ select:hover, .userInput:hover {
     -ms-border-radius: 7px;
     -o-border-radius: 7px;
 }
-.container > h3 {
-    font-family: "Robotto";
-    margin: 65px 0 60px 0;
-    font-size: 1.7em;    
-}
 
 .container {  
     display: inline-block;
@@ -122,11 +114,24 @@ select:hover, .userInput:hover {
     height: 65%;
     background-color: rgba(212, 209, 209, 0.7);
     border-radius: 7px;
-    overflow: scroll;
-}   
+    border: 3px solid rgb(117, 117, 241);
+    box-shadow: -4px 4px 18px rgb(106, 119, 238);
+}
 
+.container > h3 {
+    font-family: "Robotto";
+    margin: 55px 0 50px 0;
+    font-size: 1.7em;    
+}
+
+.container > h2 {
+    font-family: "Robotto";
+    text-shadow: 4px 4px 8px blue;
+    margin: 85px 0 60px 0;
+    font-size: 1.9em;    
+}
 label {
-    width: 300px;
+
     color: blue;
     font-size: 1.3em;
 }
@@ -138,6 +143,18 @@ label {
     font-size: 1.1em;
 }
 
+.description {
+    margin: 60px 45px;
+    font-family: "Robotto";
+    text-align: left;
+    font-weight: 500;
+    font-size: 1.1em;
+}
+
+p.description > i {
+    font-weight: bold;
+    font-size: 1.2em;
+}
 .disabled {
     color: black;
 }
