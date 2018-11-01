@@ -1,14 +1,14 @@
 //Function implementing unit convertor 
 const unitConversion = async () => {
     //Render html content for 
-    output.innerHTML = "<div class='container'><h3>Unit converter</h3>" +
+    outputHtmlObject.innerHTML = "<div class='container'><h3>Unit converter</h3>" +
     "<form novalidate> <p><label><b>Weight</b></label><input type = 'number' min='0' value='0' class='userInput' id='weightsFrom' >" +
     "<select name='weightsFromUnit'>" +
     "<option value='kg'>kg</option>" +
     "<option value='gram'>gram</option>" + 
     "<option value='lb'>lb</option>" +
     "<option value='oz'>oz</option>" +
-    "<input type = 'number' min='0' value='0' class='userInput' id='weightsTo' >" +
+    "<input type = 'text' min='0' value='0' class='userInput' id='weightsTo' >" +
     "<select name='weightsToUnit'>" +
     "<option value='kg'>kg</option>" +
     "<option value='gram'>gram</option>" + 
@@ -22,7 +22,7 @@ const unitConversion = async () => {
     "<option value='ft'>ft</option>" +
     "<option value='cm'>cm</option>" +
     "<option value='inch'>inch</option></select>" +
-    "<input type = 'number' min='0' value='0' class='userInput' id='lengthTo'>" +
+    "<input type = 'text' min='0' value='0' class='userInput disabled' id='lengthTo' disabled>" +
     "<select name='lengthToUnit'>" +
     "<option value='m'>m</option>" + 
     "<option value='mile'>mile</option>" + 
@@ -30,14 +30,14 @@ const unitConversion = async () => {
     "<option value='cm'>cm</option>" +
     "<option value='inch'>inch</option></select></p>" +
 
-    "<p><label><b>Area</b></label><input type = 'number' min='0' value='0' class='userInput' id='areaFrom' >" +
+    "<p><label><b>Area</b></label><input type = 'number' min='0' value='0' class='userInput' id='areaFrom'>" +
     "<select name='areaFromUnit'>" +
     "<option value='sq.m'>sq.m</option>" + 
     "<option value='sq.ft'>sq.ft</option>" +
     "<option value='acre'>acre</option>" +
     "<option value='sq.km'>sq.km</option>" +
     "<option value='hectare'>hectare</option></select>" +
-    "<input type = 'number' min='0' value='0' class='userInput' id='areaTo' >" +
+    "<input type = 'text' min='0' value='0' class='userInput disabled' id='areaTo' disabled>" +
     "<select name='areaToUnit'>" +
     "<option value='sq.m'>sq.m</option>" + 
     "<option value='sq.ft'>sq.ft</option>" +
@@ -52,7 +52,7 @@ const unitConversion = async () => {
     "<option value='litre'>litre</option>" +
     "<option value='gallon'>gallon</option>" +
     "<option value='pint'>pint</option></select>" +
-    "<input type = 'number' min='0' value='0' class='userInput' id='volumeTo'>" +
+    "<input type = 'text' min='0' value='0' class='userInput disabled' id='volumeTo' disabled>" +
     "<select name='volumeToUnit'>" +
     "<option value='cub.m'>cub.m</option>" + 
     "<option value='barrel'>barrel</option>" +
@@ -66,59 +66,51 @@ const unitConversion = async () => {
     //Add event listeners to input fields
     //Weight
     document.getElementById("weightsFrom").addEventListener("keyup", processInput, false);
-    document.getElementById("weightsTo").addEventListener("keyup", processInput, false);
     document.getElementById("weightsFrom").addEventListener("change", processInput, false);
-    document.getElementById("weightsTo").addEventListener("change", processInput, false);
+
     //Add event listeners to weight unit type fields
     document.getElementsByName("weightsFromUnit")[0].addEventListener("change", (event) => {
         document.getElementById("weightsFrom").dispatchEvent(new Event("change") );
     }, false);
     document.getElementsByName("weightsToUnit")[0].addEventListener("change", (event) => {
-        console.log(event);
-        document.getElementById("weightsTo").dispatchEvent(new Event("change"));
+        document.getElementById("weightsFrom").dispatchEvent(new Event("change"));
     }, false);
 
     //Length
     document.getElementById("lengthFrom").addEventListener("keyup", processInput, false);
-    document.getElementById("lengthTo").addEventListener("keyup", processInput, false);
     document.getElementById("lengthFrom").addEventListener("change", processInput, false);
-    document.getElementById("lengthTo").addEventListener("change", processInput, false);
     //Add event listeners to length unit type fields
     document.getElementsByName("lengthFromUnit")[0].addEventListener("change", (event) => {
         document.getElementById("lengthFrom").dispatchEvent(new Event("change") );
     }, false);
     document.getElementsByName("lengthToUnit")[0].addEventListener("change", (event) => {
         console.log(event);
-        document.getElementById("lengthTo").dispatchEvent(new Event("change"));
+        document.getElementById("lengthFrom").dispatchEvent(new Event("change"));
     }, false);
 
     //Area
     document.getElementById("areaFrom").addEventListener("keyup", processInput, false);
-    document.getElementById("areaTo").addEventListener("keyup", processInput, false);
     document.getElementById("areaFrom").addEventListener("change", processInput, false);
-    document.getElementById("areaTo").addEventListener("change", processInput, false);
     //Add event listeners to length unit type fields
     document.getElementsByName("areaFromUnit")[0].addEventListener("change", (event) => {
         document.getElementById("areaFrom").dispatchEvent(new Event("change") );
     }, false);
     document.getElementsByName("areaToUnit")[0].addEventListener("change", (event) => {
         console.log(event);
-        document.getElementById("areaTo").dispatchEvent(new Event("change"));
+        document.getElementById("areaFrom").dispatchEvent(new Event("change"));
     }, false);
 
     
     //Volume
     document.getElementById("volumeFrom").addEventListener("keyup", processInput, false);
-    document.getElementById("volumeTo").addEventListener("keyup", processInput, false);
     document.getElementById("volumeFrom").addEventListener("change", processInput, false);
-    document.getElementById("volumeTo").addEventListener("change", processInput, false);
     //Add event listeners to length unit type fields
     document.getElementsByName("volumeFromUnit")[0].addEventListener("change", (event) => {
         document.getElementById("volumeFrom").dispatchEvent(new Event("change") );
     }, false);
     document.getElementsByName("volumeToUnit")[0].addEventListener("change", (event) => {
         console.log(event);
-        document.getElementById("volumeTo").dispatchEvent(new Event("change"));
+        document.getElementById("volumeFrom").dispatchEvent(new Event("change"));
     }, false);
 };
 
@@ -130,10 +122,12 @@ const processInput = (event) => {
     let inputFieldId = event.currentTarget.id;
     let outputFieldId = (inputFieldId.includes('From')) ? inputFieldId.replace("From", "To") : inputFieldId.replace("To", "From");
 
-    //Check if entered values are negative, and alert user if it so, zero input values, and return from function
-    if (inputValue < 0 ||  inputValue === "") {
-        window.alert("Input values cannot be negative, blank or contain letters! Check your input ");
+    //Check if input is not a number or negative,
+    //only after user started typing something, i.e. not when they just pressed backspace (keyCode = 8) or del (keyCode 46) keys
+    if (isNaN(parseInt(inputValue)) && (event.keyCode != 8 && event.keyCode != 46)) {        
+        window.alert("Input values cannot be negative, blank or contain letters! Please check your input ");
         event.currentTarget.value = 0;
+        document.getElementById(outputFieldId).value = 0;
         return;
     }
 

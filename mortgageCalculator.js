@@ -8,7 +8,7 @@ const mortgageCalculator = async () => {
     "<label><b>Downpayment</b></label><input type='number' id='downpayment' class='userInput'  min='0' max='100' value='0' /></p>" +
     "<p><label><b>Amortization period    </b><input type='number' id='term' class='userInput'  min='0' max='30' value='0'/></label>" +
     "<label><b>Interest rate     </b><input type='number' id='interestRate' class='userInput'  min='0' max='100' value='0'/></label></p>" +
-    "<label><b>Monthly payment</b></label><br><input type='text' id='monthlyPayment' class='userInput' value='$0'/ >" +
+    "<label><b>Monthly payment</b></label><br><input type='text' id='monthlyPayment' class='userInput disabled' value='$0'/ disabled>" +
     "<p><input type='reset' value='Clear fields'/></p></form>" +
     "</div>";
 
@@ -28,9 +28,11 @@ const processMortgageInput = async (event) => {
     let inputValue = event.currentTarget.value;
     let monthlyPayment = 0;
 
-    //Check if entered values are negative, and alert user if it so, zero input values, and return from function
-    if (inputValue < 0 ||  inputValue === "") {
-        window.alert("Input values cannot be negative, blank or contain letters! Check your input ");
+    //Check if input is not a number or negative,
+    //only after user started typing something, i.e. not when they just pressed backspace (keyCode = 8) or del (keyCode 46) keys
+    if (isNaN(parseInt(inputValue)) && (event.keyCode != 8 && event.keyCode != 46)) {
+        
+        window.alert("Input values cannot be negative, blank or contain letters! Please check your input ");
         event.currentTarget.value = 0;
         return;
     }
@@ -74,14 +76,17 @@ const processMortgageInput = async (event) => {
     }
 
     //Calculate mortgage payments, formula from https://www.wikihow.com/Calculate-Mortgage-Payments was used
-    if (interestRate != 0) { //to avoid NaN value as monthly payment
+    if (interestRate != 0 && term != 0) { //to avoid NaN value as monthly payment
         monthlyPayment = ((askingPrice - (downpayment/100)*askingPrice) * interestRate/
             12 * Math.pow((1 + interestRate/12), term * 12)) / (Math.pow((1 + interestRate/12), term * 12) - 1);
     }
-    else {
+    else if(term != 0) {
         monthlyPayment = (askingPrice - (downpayment/100)*askingPrice) / (term * 12);
+    }
+    else if(term == 0) {
+        monthlyPayment = (askingPrice - (downpayment/100)*askingPrice); 
     }
     
     //Output montly payments, and round it to integers
-    document.getElementById("monthlyPayment").value = `$${monthlyPayment.toFixed(0)}`;
+    document.getElementById("monthlyPayment").value = `$${monthlyPayment.toFixed(2)}`;
 };

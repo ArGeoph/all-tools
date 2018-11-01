@@ -68,6 +68,7 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 7px;
     position: absolute;
     background-color: rgba(252, 228, 228, 0.4);
     width: 90%;
@@ -80,8 +81,14 @@ option {
     -moz-border-radius: 7px;
     -ms-border-radius: 7px;
     -o-border-radius: 7px;
+    width: 95px;
+    height: 20px;
 }
-
+select {
+    width: 100px;
+    height: 35px; 
+    text-align: center;
+}
 option:focus, .userInput:focus {
     border: 2px solid blue;
     box-shadow: -2px 2px 4px blue;
@@ -93,7 +100,7 @@ select:hover, .userInput:hover {
 }
 .userInput {
     border-radius: 7px;
-    margin: 20px 10px;
+    margin: 15px 10px;
     width: 100px;
     height: 25px;
     -webkit-border-radius: 7px;
@@ -103,7 +110,7 @@ select:hover, .userInput:hover {
 }
 .container > h3 {
     font-family: "Robotto";
-    margin: 40px 0 60px 0;
+    margin: 65px 0 60px 0;
     font-size: 1.7em;    
 }
 
@@ -124,6 +131,16 @@ label {
     font-size: 1.3em;
 }
 
+.date {
+    margin: 0 30px;
+    font-family: "Robotto";
+    font-weight: 700;
+    font-size: 1.1em;
+}
+
+.disabled {
+    color: black;
+}
 /** Footer **/
 footer {
     display: inline-flex;
