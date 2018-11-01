@@ -10,15 +10,31 @@ const initialize = () => {
     currencyButton = document.getElementById("currencyButton");
     tempConvertButton = document.getElementById("tempConvertButton");
     aboutButton = document.getElementById("aboutButton");
-   // unitConversion();
-
+    currencyConverter();
     //Add event listeners to all html objects
     unitConvertButton.addEventListener("click", unitConversion, false);
-    // mortgageButton.addEventListener("click", mortgageCalculator, false);
-    // unitConvertButton.addEventListener("click", unitConversion, false);
-    // currencyButton.addEventListener("click", currencyConverter, false);
+    mortgageButton.addEventListener("click", mortgageCalculator, false);
+    currencyButton.addEventListener("click", currencyConverter, false);
     // tempConvertButton.addEventListener("click", temperatureConverter, false);
     // aboutButton.addEventListener("click", loadPersonalInfo, false);    
+};
+
+const currencyConverter = async () => {
+    try {
+        const url = "http://data.fixer.io/api/latest?access_key=";
+        let response = await fetch("https://api.exchangeratesapi.io/latest?base=USD");
+        
+        if (response.ok) {
+            const responseJson = await response.json();
+            console.log(responseJson);
+
+            return responseJson;
+        }
+    }
+    catch(networkError) {
+        console.log(networkError);
+    }
+
 };
 
 //Add load event listener to window object 

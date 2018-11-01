@@ -59,11 +59,9 @@ const unitConversion = async () => {
     "<option value='litre'>litre</option>" +
     "<option value='gallon'>gallon</option>" +
     "<option value='pint'>pint</option></select></p>" +
-
+    "<p><input type='reset' value='Clear fields'/></p></form>" +
     
-    "</form>"
-    
-    "</div>"
+    "</div>";
 
     //Add event listeners to input fields
     //Weight
@@ -133,8 +131,6 @@ const processInput = (event) => {
     let outputFieldId = (inputFieldId.includes('From')) ? inputFieldId.replace("From", "To") : inputFieldId.replace("To", "From");
 
     //Check if entered values are negative, and alert user if it so, zero input values, and return from function
-    console.log(typeof(inputValue));
-
     if (inputValue < 0 ||  inputValue === "") {
         window.alert("Input values cannot be negative, blank or contain letters! Check your input ");
         event.currentTarget.value = 0;
