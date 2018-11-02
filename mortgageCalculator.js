@@ -4,12 +4,12 @@ let askingPrice = 0, downpayment = 0, term = 0, interestRate = 0;
 //Render html fields and add event listeners
 const mortgageCalculator = async () => {
     outputHtmlObject.innerHTML = "<div class='container'><h3>Mortgage calculator</h3>" +
-    "<form novalidate><p><label><b>Asking price</b><input type='number' class='userInput' id='askingPrice' min='0' value='0' /></label>" +
-    "<label><b>Downpayment</b></label><input type='number' id='downpayment' class='userInput'  min='0' max='100' value='0' /></p>" +
+    "<form novalidate><p><label><b>Asking price</b><input type='number' class='userInput' id='askingPrice' min='0' value='0' /></label><wbr>" +
+    "<label><b>Downpayment</b></label><input type='number' id='downpayment' class='userInput'  min='0' max='100' value='0' /><wbr></p>" +
     "<p><label><b>Amortization term</b><input type='number' id='term' class='userInput'  min='0' max='30' value='0'/></label>" +
     "<label><b>Interest rate     </b><input type='number' id='interestRate' class='userInput'  min='0' max='100' value='0'/></label></p>" +
     "<label><b>Monthly payment</b></label><br><input type='text' id='monthlyPayment' class='userInput disabled' value='$0'/ disabled>" +
-    "<p><input type='reset' value='Clear fields'/></p></form>" +
+    "<p><input type='reset' class='resetButton' value='Clear fields'/></p></form>" +
     "</div>";
 
     //Add event listeners to field html objects
@@ -23,7 +23,7 @@ const mortgageCalculator = async () => {
     document.getElementById("interestRate").addEventListener("keyup", await processMortgageInput, false);
 };
 
-//Function processing user input and calculating mortgage payments
+//AsynsFunction processing user input and calculating mortgage payments
 const processMortgageInput = async (event) => {
     let inputValue = event.currentTarget.value;
     let monthlyPayment = 0;

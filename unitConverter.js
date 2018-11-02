@@ -59,7 +59,7 @@ const unitConversion = async () => {
     "<option value='litre'>litre</option>" +
     "<option value='gallon'>gallon</option>" +
     "<option value='pint'>pint</option></select></p>" +
-    "<p><input type='reset' value='Clear fields'/></p></form>" +
+    "<p><input type='reset' class='resetButton' value='Clear fields'/></p></form>" +
     
     "</div>";
 

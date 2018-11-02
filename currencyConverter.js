@@ -37,7 +37,7 @@ const currencyConverter = async () => {
        htmlContent += `<option value="${currencyCode}">${currencyCode}</option>`;
     });
 
-    outputHtmlObject.innerHTML = htmlContent + "</select><p><input type='reset' value='Clear fields' /></p></form></div>";
+    outputHtmlObject.innerHTML = htmlContent + "</select><p><input type='reset' class='resetButton' value='Clear fields' /></p></form></div>";
 
     //Add event listeners to html objects
     document.getElementById("exchangeFrom").addEventListener("change", await processCurrencyInput, false);
