@@ -6,7 +6,7 @@ const mortgageCalculator = async () => {
     outputHtmlObject.innerHTML = "<div class='container'><h3>Mortgage calculator</h3>" +
     "<form novalidate><p><label><b>Asking price</b><input type='number' class='userInput' id='askingPrice' min='0' value='0' /></label>" +
     "<label><b>Downpayment</b></label><input type='number' id='downpayment' class='userInput'  min='0' max='100' value='0' /></p>" +
-    "<p><label><b>Amortization period    </b><input type='number' id='term' class='userInput'  min='0' max='30' value='0'/></label>" +
+    "<p><label><b>Amortization term</b><input type='number' id='term' class='userInput'  min='0' max='30' value='0'/></label>" +
     "<label><b>Interest rate     </b><input type='number' id='interestRate' class='userInput'  min='0' max='100' value='0'/></label></p>" +
     "<label><b>Monthly payment</b></label><br><input type='text' id='monthlyPayment' class='userInput disabled' value='$0'/ disabled>" +
     "<p><input type='reset' value='Clear fields'/></p></form>" +
@@ -28,11 +28,9 @@ const processMortgageInput = async (event) => {
     let inputValue = event.currentTarget.value;
     let monthlyPayment = 0;
 
-    //Check if input is not a number or negative,
-    //only after user started typing something, i.e. not when they just pressed backspace (keyCode = 8) or del (keyCode 46) keys
-    if (isNaN(parseInt(inputValue)) && (event.keyCode != 8 && event.keyCode != 46)) {
-        
-        window.alert("Input values cannot be negative, blank or contain letters! Please check your input ");
+    //Check if entered values are negative, and alert user if it so, zero input values, and return from function
+    if (inputValue < 0) {
+        window.alert("Input values cannot be negative, blank or contain letters! Check your input ");
         event.currentTarget.value = 0;
         return;
     }
