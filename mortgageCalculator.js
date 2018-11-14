@@ -28,10 +28,12 @@ const processMortgageInput = async (event) => {
     let inputValue = event.currentTarget.value;
     let monthlyPayment = 0;
 
-    //Check if entered values are negative, and alert user if it so, zero input values, and return from function
-    if (inputValue < 0) {
-        window.alert("Input values cannot be negative, blank or contain letters! Check your input ");
+    //Check if input is not a number or negative,
+    //only after user started typing something, i.e. not when they just pressed backspace (keyCode = 8) or del (keyCode 46) keys
+    if (isNaN(parseInt(inputValue)) && (event.keyCode != 8 && event.keyCode != 46)) {        
+        window.alert("Input values cannot be negative, blank or contain letters! Please check your input ");
         event.currentTarget.value = 0;
+
         return;
     }
 
