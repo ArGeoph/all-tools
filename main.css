@@ -2,9 +2,8 @@ body {
     font-family: Roboto; 
     margin: 0 auto;
     background: url("geometry-1023846_1920.jpg") no-repeat fixed center;
-    /* background-position: center; */
-    background-size: cover;
-       
+    background-size: cover;       
+
 }
 /*Header style*/
 header {
@@ -25,12 +24,11 @@ nav {
     flex-wrap: wrap;
     justify-content: center;
 }
-
 .menuButton {
     border-radius: 7px;
     opacity: 0.9;
     font-size: 1.65em;
-    width: 24%;
+    width: 350px;
     height: 60px;
     margin: 0;
     font-weight: bold;
@@ -42,11 +40,9 @@ nav {
     -o-border-radius: 7px;
     background-color: rgb(241, 226, 203);
 }
-
 .menuButton:hover {
     background-color: rgb(240, 197, 134);
 } 
-
 .buttonActive {
     height: 65px;
     background-color: rgb(250, 183, 83);
@@ -54,7 +50,6 @@ nav {
     border-right: 4px solid  rgb(46, 0, 253);
     box-shadow: -4px 4px 18px rgb(106, 119, 238);
 }
-
 /** Content style**/
 section {
     display: flex;
@@ -69,9 +64,8 @@ section {
     background-color: rgba(252, 228, 228, 0.4);
     width: 90%;
     height: 85%;
-    min-height: 700px;
+    min-height: 1000px;
 }
-
 option {
     border-radius: 7px;
     -webkit-border-radius: 7px;
@@ -81,7 +75,6 @@ option {
     width: 95px;
     height: 20px;
 }
-
 select {
     width: 100px;
     height: 35px; 
@@ -96,7 +89,9 @@ select:hover, .userInput:hover {
     border: 2px solid rgb(189, 243, 157);
     background-color: rgb(215, 233, 211);
 }
-
+form {
+    text-align: center;
+}
 .userInput {
     border-radius: 7px;
     margin: 12px 10px;
@@ -107,33 +102,52 @@ select:hover, .userInput:hover {
     -ms-border-radius: 7px;
     -o-border-radius: 7px;
 }
-
 .container {  
-    display: inline-block;
+    display: inline-flex;
     font-family: "Robotto";
-    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     width: 40%;
-    height: 65%;
-    min-height: 500px;
+    min-height: 600px;
     background-color: rgba(212, 209, 209, 0.7);
     border-radius: 7px;
     border: 3px solid rgb(117, 117, 241);
     box-shadow: -4px 4px 18px rgb(106, 119, 238);
+    flex-grow: 2;
 }
-
+.container p {
+    padding: 10px 10px;
+    border: 3px solid palevioletred;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
 .container > h3 {
     font-family: "Robotto";
     margin: 55px 0 10px 0;
-    font-size: 1.7em;    
-}
+    font-size: 1.7em;   
 
+}
+form h3 {
+    margin: 0px 0px;
+    padding: 0px 0px;
+    text-align: center;
+    font-size: 1.4em;  
+    color: blue;  
+}
 .container > h2 {
     font-family: "Robotto";
     text-shadow: 4px 4px 8px blue;
     margin: 85px 0 60px 0;
     font-size: 1.9em;    
+    text-align: center;
 }
 label {
+    padding: 0px 10px;
     color: blue;
     font-size: 1.3em;
 }
@@ -159,6 +173,9 @@ p.description > i {
 .disabled {
     color: black;
 }
+#mortgage p, #currency p {
+    text-align: right;
+}
 
 .resetButton {
     font-family: "Robotto";
@@ -174,27 +191,98 @@ p.description > i {
     margin: 35px 2px;
     font-weight: bold;
     padding: 5px 5px;
+    background-color: rgba(99, 48, 240, 0.4);
 }
 
 .resetButton:hover {
     box-shadow: -5px 5px 12px rgb(106, 119, 238);
-    background-color: rgba(135, 97, 241, 0.85);
+    background-color: rgba(99, 48, 240, 0.8);
 }
 
 /** Footer **/
 footer {
-    display: inline-flex;
+    position: relative;
+    display: flex;
     align-items: center;
     justify-content: center;
     border-top: 4px solid rgb(46, 0, 253);
     margin: 0;
     padding: 0;
-    top: 800px;
-    position: relative;
+    top: 1000px;
     width: 100%;
     padding: 30px 0px;
     background-color: black;
     color: rgb(255, 205, 130);
     font-family: "Indie Flower"; 
     font-size: 2.3em;
+}
+
+/*Adapt screeen to various screen sizes 
+=================================================*/
+@media screen and (max-width: 1400px) {
+    nav {
+        width: 100%;
+    }
+    .menuButton {
+        font-size: 1.5em;
+
+    }
+    .buttonActive {
+        height: 65px;
+        background-color: rgb(250, 183, 83);
+        border-left: 4px solid  rgb(46, 0, 253);
+        border-right: 4px solid  rgb(46, 0, 253);
+        box-shadow: -4px 4px 18px rgb(106, 119, 238);
+    }
+    header {
+        font-size: 2.4em;
+    }
+    footer {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-top: 4px solid rgb(46, 0, 253);
+        margin: 0;
+        padding: 0;
+        top: 1000px;
+        width: 100%;
+        padding: 30px 0px;
+        background-color: black;
+        color: rgb(255, 205, 130);
+        font-family: "Indie Flower"; 
+        font-size: 2.1em;
+    }
+}
+@media screen and (max-width: 800px) {
+    nav {
+        width: 100%;
+
+    }
+    .menuButton {
+        width: 100%;
+        font-size: 1.4em;
+    }
+    .buttonActive {
+        height: 65px;
+    }
+    header {
+        font-size: 1.8em;
+    }
+    footer { 
+        font-size: 1.8em;
+    }
+    .container > h3 {
+        font-size: 1.5em;     
+    }
+    form h3 {
+        font-size: 1.2em;  
+    }
+    .container > h2 {
+        margin: 85px 0 60px 0;
+        font-size: 1.5em;    
+    }
+    label {
+        font-size: 1.2em;
+    }
 }

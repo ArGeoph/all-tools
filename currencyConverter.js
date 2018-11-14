@@ -20,8 +20,8 @@ const currencyConverter = async () => {
     
     let htmlContent = "<div class='container'><h3>Currency converter</h3>" +
     "<p class='date'>Exchange rates were updated on " + exchangeRates.date + " and fetched from server on " + new Date().toLocaleString() +  "</p>" +
-    "<form novalidate>" +
-    "<p><label><b>Exchange from</b><input type='number' class='userInput' id='exchangeFrom' min='0' value='0' /></label>" +
+    "<form novalidate id='currency'>" +
+    "<p><label><b>Exchange from</b></label><input type='number' class='userInput' id='exchangeFrom' min='0' value='0' />" +
     "<select name='exchangeFromUnit'>";
     
     //Add available currencies to html content 
@@ -29,7 +29,7 @@ const currencyConverter = async () => {
        htmlContent += `<option value="${currencyCode}">${currencyCode}</option>`;
     });        
     
-    htmlContent += "</select><p><label><b>Exchange to</b><input type='text' class='userInput disabled' id='exchangeTo' value='0' disabled/></label>" +
+    htmlContent += "</select><p><label><b>Exchange to</b></label><input type='text' class='userInput disabled' id='exchangeTo' value='0' disabled/>" +
     "<select name='exchangeToUnit'>";
 
     //Add available currencies to html content 
@@ -37,7 +37,7 @@ const currencyConverter = async () => {
        htmlContent += `<option value="${currencyCode}">${currencyCode}</option>`;
     });
 
-    outputHtmlObject.innerHTML = htmlContent + "</select><p><input type='reset' class='resetButton' value='Clear fields' /></p></form></div>";
+    outputHtmlObject.innerHTML = htmlContent + "</select></p><br><input type='reset' class='resetButton' value='Clear fields' /></form></div>";
 
     //Add event listeners to html objects
     document.getElementById("exchangeFrom").addEventListener("change", await processCurrencyInput, false);

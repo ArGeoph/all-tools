@@ -2,27 +2,28 @@
 const unitConversion = async () => {
     //Render html content for 
     outputHtmlObject.innerHTML = "<div class='container'><h3>Unit converter</h3>" +
-    "<form novalidate> <p><label><b>Weight</b></label><input type = 'number' min='0' value='0' class='userInput' id='weightsFrom' >" +
-    "<select name='weightsFromUnit'>" +
+    "<form novalidate><h3>Weight</h3>" +
+    "<p><label>From</label><input type = 'number' min='0' value='0' class='userInput' id='weightsFrom' ><select name='weightsFromUnit'>" +
     "<option value='kg'>kg</option>" +
     "<option value='gram'>gram</option>" + 
     "<option value='lb'>lb</option>" +
-    "<option value='oz'>oz</option>" +
-    "<input type = 'text' min='0' value='0' class='userInput' id='weightsTo' >" +
+    "<option value='oz'>oz</option></select><wbr>" +
+    "<label>To</label><input type = 'text' min='0' value='0' class='userInput' id='weightsTo' >" +
     "<select name='weightsToUnit'>" +
     "<option value='kg'>kg</option>" +
     "<option value='gram'>gram</option>" + 
     "<option value='lb'>lb</option>" +
-    "<option value='oz'>oz</option></select></p>" +
+    "<option value='oz'>oz</option></select></p><wbr>" +
 
-    "<p><label><b>Length</b></label><input type = 'number' min='0' value='0' class='userInput' id='lengthFrom' >" +
+    "<h3>Length</h3>" + 
+    "<p><label>From</label><input type = 'number' min='0' value='0' class='userInput' id='lengthFrom' >" +
     "<select name='lengthFromUnit'>" +
     "<option value='m'>m</option>" + 
     "<option value='mile'>mile</option>" + 
     "<option value='ft'>ft</option>" +
     "<option value='cm'>cm</option>" +
     "<option value='inch'>inch</option></select>" +
-    "<input type = 'text' min='0' value='0' class='userInput disabled' id='lengthTo' disabled>" +
+    "<label>To</label><input type = 'text' min='0' value='0' class='userInput disabled' id='lengthTo' disabled>" +
     "<select name='lengthToUnit'>" +
     "<option value='m'>m</option>" + 
     "<option value='mile'>mile</option>" + 
@@ -30,14 +31,15 @@ const unitConversion = async () => {
     "<option value='cm'>cm</option>" +
     "<option value='inch'>inch</option></select></p>" +
 
-    "<p><label><b>Area</b></label><input type = 'number' min='0' value='0' class='userInput' id='areaFrom'>" +
+    "<h3>Area</h3>"  + 
+    "<p><label>From</label><input type = 'number' min='0' value='0' class='userInput' id='areaFrom'>" +
     "<select name='areaFromUnit'>" +
     "<option value='sq.m'>sq.m</option>" + 
     "<option value='sq.ft'>sq.ft</option>" +
     "<option value='acre'>acre</option>" +
     "<option value='sq.km'>sq.km</option>" +
     "<option value='hectare'>hectare</option></select>" +
-    "<input type = 'text' min='0' value='0' class='userInput disabled' id='areaTo' disabled>" +
+    "<label>To</label><input type = 'text' min='0' value='0' class='userInput disabled' id='areaTo' disabled>" +
     "<select name='areaToUnit'>" +
     "<option value='sq.m'>sq.m</option>" + 
     "<option value='sq.ft'>sq.ft</option>" +
@@ -45,21 +47,22 @@ const unitConversion = async () => {
     "<option value='sq.km'>sq.km</option>" +
     "<option value='hectare'>hectare</option></select></select></p>" +
 
-    "<p><label><b>Volume </b></label><input type = 'number' min='0' value='0' class='userInput' id='volumeFrom' >" +
+    "<h3>Volume</h3>"  +  
+    "<p><label>From</label><input type = 'number' min='0' value='0' class='userInput' id='volumeFrom' >" +
     "<select name='volumeFromUnit'>" +
     "<option value='cub.m'>cub.m</option>" + 
     "<option value='barrel'>barrel</option>" +
     "<option value='litre'>litre</option>" +
     "<option value='gallon'>gallon</option>" +
     "<option value='pint'>pint</option></select>" +
-    "<input type = 'text' min='0' value='0' class='userInput disabled' id='volumeTo' disabled>" +
+    "<label>To</label><input type = 'text' min='0' value='0' class='userInput disabled' id='volumeTo' disabled>" +
     "<select name='volumeToUnit'>" +
     "<option value='cub.m'>cub.m</option>" + 
     "<option value='barrel'>barrel</option>" +
     "<option value='litre'>litre</option>" +
     "<option value='gallon'>gallon</option>" +
-    "<option value='pint'>pint</option></select></p>" +
-    "<p><input type='reset' class='resetButton' value='Clear fields'/></p></form>" +
+    "<option value='pint'>pint</option></select></p><br>" +
+    "<input type='reset' class='resetButton' value='Clear fields'/></form>" +
     
     "</div>";
 

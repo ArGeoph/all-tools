@@ -4,8 +4,7 @@ let mainPageContent; //Object used to store content for the main page
 
 //Function called when app loaded for the first time, to initialize all variables and add event listeners to all html objects
 const initialize = () => {
-    //Initialize all html objects that will be used in the application
-    
+    //Initialize all html objects that will be used in the application    
     outputHtmlObject = document.getElementById("output");
     mainPageButton = document.getElementById("mainPageButton");
     unitConvertButton = document.getElementById("unitConvertButton");
