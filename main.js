@@ -25,11 +25,9 @@ const initialize = () => {
 //Function rendering main page content
 const renderMainPage =  () => {
     if (mainPageContent === undefined) {
-        mainPageContent = "<div class='container'><p class='description'>This web app was created as an assignment for the Advanced Technologies for Web-Based Systems course (COMP466) at Athabasca University." + 
-        " I used vanila JavaScript and JQuery to complete the assignment.<br>" +
-        "The app consists of three tools: <i>Unit Converter</i>, <i>Morgtgage Calculator</i> and <i>Currency converter</i>. Please note that you will need an access to the Internet to use" +
-        " the Currency converter, because the exchange rates are fetched from a publicly available API.</p>" + 
-        "<h2>Enjoy!</h2></div>";
+        mainPageContent = "<div class='container'><p class='description'>" +  
+        "The app consists of three tools: <i>Unit Converter</i>, <i>Morgtgage Calculator</i> and <i>Currency converter</i>. <br /> Please note that you will need an access to the Internet to use" +
+        " the Currency converter, because the exchange rates are fetched from a publicly available API. This app is created with vanilla JavaScript and JQuery</p></div>";
     }
     
     outputHtmlObject.innerHTML =  mainPageContent;

@@ -8,7 +8,7 @@ const unitConversion = async () => {
     "<option value='gram'>gram</option>" + 
     "<option value='lb'>lb</option>" +
     "<option value='oz'>oz</option></select><wbr>" +
-    "<label>To</label><input type = 'text' min='0' value='0' class='userInput' id='weightsTo' >" +
+    "<label>To</label><input type = 'text' min='0' value='0' class='userInput' id='weightsTo' disabled>" +
     "<select name='weightsToUnit'>" +
     "<option value='kg'>kg</option>" +
     "<option value='gram'>gram</option>" + 
